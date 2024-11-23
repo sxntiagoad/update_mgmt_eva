@@ -3,11 +3,9 @@
   "url": "https://updatemgmteva-production.up.railway.app/api/updates/download",
   "changelog": "Primera versión de la aplicación",
   "releaseNotes": [
-      "Funcionalidad inicial",
-      "Sistema de autenticación",
-      "Interfaz básica"
+      "Funcionalidad de chequeos de limpieza"
   ],
-  "releaseDate": "2024-03-21",
+  "releaseDate": "2024-11-23",
   "minSupportedVersion": "1.0.0",
   "forceUpdate": false
 }
