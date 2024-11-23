@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getLatestUpdate, downloadApk } from '../controllers/updateController';
+import { getLatestUpdate, downloadApk } from '../controllers/updateController.js';
 const router = Router();
 
 

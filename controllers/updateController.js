@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs').promises;
+import { join } from 'path';
+import { promises as fs } from 'fs';
 
 const getLatestUpdate = async (req, res) => {
   try {
-    const jsonPath = path.join(__dirname, '../public/updates/latest.json');
+    const jsonPath = join(__dirname, '../public/updates/latest.json');
     const data = await fs.readFile(jsonPath, 'utf8');
     res.json(JSON.parse(data));
   } catch (error) {
@@ -12,8 +12,9 @@ const getLatestUpdate = async (req, res) => {
 };
 
 const downloadApk = (req, res) => {
-  const apkPath = path.join(__dirname, '../public/apk/app-release.apk');
-  res.download(apkPath);
+  const driveId = '1jIll6FkZO085NPtmTSqWQybofr8YK3tu';
+  const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveId}&confirm=t`;
+  res.redirect(downloadUrl);
 };
 
 export default {

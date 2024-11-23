@@ -1,18 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const logger = require('./middleware/logger');
-const updateRoutes = require('./routes/updateRoutes');
+import express, { json } from 'express';
+import cors from 'cors';
+import { join } from 'path';
+import logger from './middleware/logger';
+import updateRoutes from './routes/updateRoutes.js';
 
 const app = express();
 
 //middlewares
 app.use(cors());
-app.use(express.json());
+app.use(json());
 app.use(logger); //middleware personalizado
-
 // Middleware para servir archivos estáticos
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(join(__dirname, 'public')));
 
 //routes
 app.use('/api', updateRoutes);
@@ -22,4 +21,4 @@ app.get('/', (req, res) => {
     res.send('Welcome to my server');
 });
 
-module.exports = app;
+export default app;
