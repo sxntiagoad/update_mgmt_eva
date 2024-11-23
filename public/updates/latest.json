@@ -1,5 +1,13 @@
 {
-    "latestVersion": "2.0.0",
-    "url": "https://tu-app-railway.up.railway.app/api/updates/download",
-    "changelog": "Nuevas funcionalidades y corrección de errores."
-  }
+  "latestVersion": "1.0.0",
+  "url": "https://updatemgmteva-production.up.railway.app/api/updates/download",
+  "changelog": "Primera versión de la aplicación",
+  "releaseNotes": [
+      "Funcionalidad inicial",
+      "Sistema de autenticación",
+      "Interfaz básica"
+  ],
+  "releaseDate": "2024-03-21",
+  "minSupportedVersion": "1.0.0",
+  "forceUpdate": false
+}
