@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import { join } from 'path';
-import logger from './middleware/logger';
+import logger from './middleware/logger.js';
 import updateRoutes from './routes/updateRoutes.js';
 
 const app = express();
