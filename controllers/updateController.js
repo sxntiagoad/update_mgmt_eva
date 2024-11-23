@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { promises as fs } from 'fs';
 
-const getLatestUpdate = async (req, res) => {
+export const getLatestUpdate = async (req, res) => {
   try {
     const jsonPath = join(__dirname, '../public/updates/latest.json');
     const data = await fs.readFile(jsonPath, 'utf8');
@@ -11,7 +11,7 @@ const getLatestUpdate = async (req, res) => {
   }
 };
 
-const downloadApk = (req, res) => {
+export const downloadApk = (req, res) => {
   const driveId = '1jIll6FkZO085NPtmTSqWQybofr8YK3tu';
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveId}&confirm=t`;
   res.redirect(downloadUrl);
