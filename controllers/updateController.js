@@ -3,6 +3,7 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { promises as fs } from 'fs';
+import fetch from 'node-fetch';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -33,12 +34,17 @@ export const downloadApk = async (req, res) => {
       Key: 'app-release.apk'
     });
 
-    // Generar URL firmada (válida por 1 hora)
     const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
-    res.redirect(signedUrl);
+    
+    res.setHeader('Content-Type', 'application/vnd.android.package-archive');
+    res.setHeader('Content-Disposition', 'attachment; filename="app-release.apk"');
+    
+    const response = await fetch(signedUrl);
+    response.body.pipe(res);
+    
   } catch (error) {
-    console.error('Error al generar URL de descarga:', error);
-    res.status(500).json({ error: 'Error al generar enlace de descarga' });
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Error al descargar el APK' });
   }
 };
 
