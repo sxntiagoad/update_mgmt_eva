@@ -1,11 +1,11 @@
 {
-  "latestVersion": "2.0.0",
+  "latestVersion": "2.0.1",
   "url": "https://updatemgmteva-production.up.railway.app/api/updates/download",
-  "changelog": "Segunda version de EVA",
+  "changelog": "Tercera version de EVA",
   "releaseNotes": [
-      "Funcionalidad de chequeos de limpieza"
+      "Funcionalidad de autoreportes de salud"
   ],
-  "releaseDate": "2024-11-28",
-  "minSupportedVersion": "2.0.0",
+  "releaseDate": "2024-12-10",
+  "minSupportedVersion": "2.0.1",
   "forceUpdate": false
 }
